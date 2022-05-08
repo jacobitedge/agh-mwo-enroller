@@ -6,7 +6,6 @@ import org.hibernate.dialect.identity.IdentityColumnSupport;
 import java.sql.Types;
 
 public class SQLiteDialect extends Dialect {
-
 	public SQLiteDialect() {
 		registerColumnType(Types.BIT, "integer");
 		registerColumnType(Types.TINYINT, "tinyint");
@@ -30,6 +29,7 @@ public class SQLiteDialect extends Dialect {
 		registerColumnType(Types.BLOB, "blob");
 		registerColumnType(Types.CLOB, "clob");
 		registerColumnType(Types.BOOLEAN, "integer");
+
 	}
 
 	public IdentityColumnSupport getIdentityColumnSupport() {
@@ -42,10 +42,6 @@ public class SQLiteDialect extends Dialect {
 
 	public boolean dropConstraints() {
 		return false;
-	}
-
-	public String getDropForeignKeyString() {
-		return "";
 	}
 
 	public String getAddForeignKeyConstraintString(String constraintName, String[] foreignKey, String referencedTable, String[] primaryKey, boolean referencesPrimaryKey) {
